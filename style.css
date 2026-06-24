@@ -7,39 +7,41 @@
 }
 
 :root {
-  --preto: #080d0c;
-  --verde-escuro: #10221b;
-  --verde-floresta: #183a2a;
-  --verde-musgo: #315d3d;
-  --verde-claro: #79a85b;
-  --osso: #e8e3ce;
-  --laranja: #d46d2f;
-  --laranja-claro: #f09a4d;
+  --preto: #050807;
+  --verde-fundo: #0b1b13;
+  --verde-card: #10291c;
+  --verde-borda: #3f6e49;
+  --verde-claro: #86b96a;
+  --osso: #ece6cf;
+  --texto: #bdc7ae;
+  --laranja: #d76d2d;
+  --laranja-claro: #f2a052;
+  --vermelho: #a63f2c;
 }
 
 body {
   min-height: 100vh;
   background:
-    radial-gradient(circle at 15% 20%, rgba(67, 113, 70, 0.3), transparent 25%),
-    radial-gradient(circle at 85% 80%, rgba(212, 109, 47, 0.18), transparent 28%),
-    linear-gradient(135deg, #050807, #10251a 55%, #07100d);
+    radial-gradient(circle at 15% 20%, rgba(72, 125, 76, 0.25), transparent 25%),
+    radial-gradient(circle at 85% 75%, rgba(215, 109, 45, 0.16), transparent 30%),
+    linear-gradient(135deg, #040706, #10271b 55%, #07110d);
   color: var(--osso);
   font-family: "Montserrat", Arial, sans-serif;
   overflow-x: hidden;
   position: relative;
 }
 
-/* Névoa da floresta */
+/* Névoa e textura de floresta */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   background:
-    linear-gradient(to top, rgba(0, 0, 0, 0.72), transparent 45%),
+    linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent 48%),
     repeating-linear-gradient(
       90deg,
-      rgba(121, 168, 91, 0.03) 0,
-      rgba(121, 168, 91, 0.03) 2px,
+      rgba(134, 185, 106, 0.035) 0,
+      rgba(134, 185, 106, 0.035) 2px,
       transparent 2px,
       transparent 90px
     );
@@ -51,19 +53,19 @@ body::before {
 body::after {
   content: "🦖";
   position: fixed;
-  right: -25px;
-  bottom: -45px;
+  right: -35px;
+  bottom: -55px;
   font-size: 260px;
-  opacity: 0.08;
+  opacity: 0.1;
   filter: grayscale(1) sepia(1) hue-rotate(70deg);
   transform: rotate(-12deg);
-  z-index: 0;
   pointer-events: none;
+  z-index: 0;
 }
 
 .container {
   width: 90%;
-  max-width: 980px;
+  max-width: 1000px;
   min-height: 100vh;
   margin: 0 auto;
   padding: 70px 0;
@@ -76,19 +78,19 @@ body::after {
 }
 
 .card {
+  position: relative;
+  overflow: hidden;
   background: linear-gradient(
     145deg,
-    rgba(23, 50, 36, 0.95),
-    rgba(8, 18, 14, 0.96)
+    rgba(20, 49, 34, 0.96),
+    rgba(6, 16, 11, 0.97)
   );
-  border: 1px solid rgba(121, 168, 91, 0.42);
+  border: 1px solid rgba(134, 185, 106, 0.45);
   border-radius: 22px;
   padding: 34px;
   box-shadow:
     0 20px 50px rgba(0, 0, 0, 0.55),
-    inset 0 1px 0 rgba(232, 227, 206, 0.08);
-  position: relative;
-  overflow: hidden;
+    inset 0 1px 0 rgba(236, 230, 207, 0.08);
 }
 
 .card::before {
@@ -109,26 +111,26 @@ body::after {
 .card::after {
   content: "🦕";
   position: absolute;
+  top: 16px;
   right: 18px;
-  top: 14px;
-  font-size: 38px;
-  opacity: 0.15;
+  font-size: 35px;
+  opacity: 0.14;
   filter: grayscale(1);
 }
 
 h1,
 h2 {
   font-family: "Anton", Impact, sans-serif;
-  letter-spacing: 1px;
   text-transform: uppercase;
-  color: var(--osso);
+  letter-spacing: 1px;
+  line-height: 1.1;
   margin-bottom: 12px;
-  line-height: 1;
 }
 
 h1 {
-  font-size: 37px;
-  text-shadow: 3px 3px 0 var(--verde-floresta);
+  font-size: 38px;
+  color: var(--osso);
+  text-shadow: 3px 3px 0 #173525;
 }
 
 h2 {
@@ -137,32 +139,31 @@ h2 {
 }
 
 p {
-  color: #bdc7ae;
+  color: var(--texto);
   line-height: 1.6;
-  margin-bottom: 25px;
+  margin-bottom: 22px;
 }
 
 form {
   display: flex;
   flex-direction: column;
-  gap: 13px;
+  gap: 12px;
 }
 
 label {
   color: var(--verde-claro);
-  font-weight: 700;
   font-size: 14px;
-  letter-spacing: 0.4px;
+  font-weight: 700;
 }
 
 input {
   width: 100%;
-  background: rgba(4, 12, 9, 0.8);
-  border: 1px solid #42684b;
-  border-radius: 12px;
-  color: var(--osso);
   padding: 14px;
+  border: 1px solid #456f4e;
+  border-radius: 12px;
   outline: none;
+  background: rgba(3, 11, 7, 0.82);
+  color: var(--osso);
   font-family: "Montserrat", Arial, sans-serif;
   font-size: 15px;
   transition: 0.25s;
@@ -174,29 +175,39 @@ input::placeholder {
 
 input:focus {
   border-color: var(--laranja-claro);
-  box-shadow: 0 0 0 3px rgba(240, 154, 77, 0.15);
-  background: rgba(10, 24, 17, 0.95);
+  background: rgba(10, 25, 17, 0.96);
+  box-shadow: 0 0 0 3px rgba(242, 160, 82, 0.16);
 }
 
 button {
   margin-top: 8px;
+  padding: 14px;
   border: none;
   border-radius: 12px;
-  padding: 14px;
-  background: linear-gradient(135deg, #bd5627, #e7863e);
-  color: #160c05;
+  background: linear-gradient(135deg, var(--laranja), var(--laranja-claro));
+  color: #1a0d05;
   font-family: "Montserrat", Arial, sans-serif;
   font-size: 15px;
   font-weight: 800;
   cursor: pointer;
   transition: 0.25s;
-  box-shadow: 0 8px 18px rgba(212, 109, 47, 0.2);
+  box-shadow: 0 8px 18px rgba(215, 109, 45, 0.22);
 }
 
 button:hover {
   transform: translateY(-3px);
-  background: linear-gradient(135deg, #e7863e, #f5af62);
-  box-shadow: 0 12px 22px rgba(212, 109, 47, 0.35);
+  background: linear-gradient(135deg, #ec8a43, #ffc176);
+  box-shadow: 0 12px 24px rgba(215, 109, 45, 0.35);
+}
+
+.resumo {
+  margin-bottom: 18px;
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(4, 15, 9, 0.55);
+  border: 1px solid rgba(134, 185, 106, 0.25);
+  color: var(--verde-claro);
+  font-weight: bold;
 }
 
 #listaClientes {
@@ -206,94 +217,56 @@ button:hover {
 }
 
 .cliente {
-  background: rgba(8, 20, 14, 0.8);
-  border: 1px solid rgba(121, 168, 91, 0.3);
-  border-left: 5px solid var(--verde-claro);
-  border-radius: 13px;
-  padding: 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 14px;
+  padding: 16px;
+  border: 1px solid rgba(134, 185, 106, 0.3);
+  border-left: 5px solid var(--verde-claro);
+  border-radius: 14px;
+  background: rgba(5, 18, 11, 0.84);
   animation: aparecer 0.35s ease;
 }
 
 .cliente strong {
   display: block;
-  color: var(--osso);
   margin-bottom: 5px;
+  color: var(--osso);
 }
 
 .cliente span {
+  color: #adbaa4;
   font-size: 13px;
-  color: #aebca4;
 }
 
 .btn-excluir {
   width: auto;
   margin: 0;
-  padding: 9px 12px;
+  padding: 9px 13px;
+  background: var(--vermelho);
+  color: #ffe8d3;
   font-size: 12px;
-  background: #7d2f22;
-  color: #ffe6cf;
   box-shadow: none;
 }
 
 .btn-excluir:hover {
-  background: #b8442e;
+  background: #cf5038;
+  box-shadow: none;
 }
 
-/* Troca as flores antigas por pegadas jurássicas */
-.rosas span {
-  position: fixed;
-  top: -50px;
-  font-size: 27px;
-  color: rgba(121, 168, 91, 0.22);
-  animation: cair 11s linear infinite;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.rosas span::after {
-  content: "♣";
-}
-
-.rosas span {
-  font-size: 0;
-}
-
-.rosas span:nth-child(1) { left: 7%; animation-delay: 0s; }
-.rosas span:nth-child(2) { left: 18%; animation-delay: 2s; }
-.rosas span:nth-child(3) { left: 31%; animation-delay: 4s; }
-.rosas span:nth-child(4) { left: 45%; animation-delay: 1s; }
-.rosas span:nth-child(5) { left: 58%; animation-delay: 5s; }
-.rosas span:nth-child(6) { left: 70%; animation-delay: 3s; }
-.rosas span:nth-child(7) { left: 83%; animation-delay: 6s; }
-.rosas span:nth-child(8) { left: 94%; animation-delay: 2.5s; }
-
-.mensagem {
-  color: #bdc7ae;
-}
-
-.erro {
-  color: #ff9475;
+.sucesso {
+  color: #85f5a1;
   font-weight: bold;
 }
 
-@keyframes cair {
-  0% {
-    transform: translateY(-60px) rotate(0deg);
-    opacity: 0;
-  }
+.erro {
+  color: #ff9a7d;
+  font-weight: bold;
+}
 
-  15% {
-    opacity: 1;
-  }
-
-  100% {
-    transform: translateY(110vh) rotate(360deg);
-    opacity: 0;
-  }
+.carregando {
+  color: var(--texto);
 }
 
 @keyframes aparecer {
@@ -323,6 +296,6 @@ button:hover {
   }
 
   body::after {
-    font-size: 180px;
+    font-size: 175px;
   }
 }
